@@ -1,6 +1,8 @@
 # interface-mixins
 
-To create an Interface, pass it an interface name and a list of method names:
+To create an Interface, pass it an interface name and a list of method
+names. A class will be created which raises NotImplementedError for each
+of the specified method names:
 
 ~~~ python
 AnInterface = Interface('AnInterface', [
@@ -11,6 +13,14 @@ AnInterface = Interface('AnInterface', [
     'should',
     'have'
 ])
+~~~
+
+
+To use this interface, simply inherit from it:
+
+~~~ python
+class AClass(AnInterface):
+    pass
 ~~~
 
 

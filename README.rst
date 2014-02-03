@@ -2,7 +2,8 @@ interface-mixins
 ================
 
 To create an Interface, pass it an interface name and a list of method
-names:
+names. A class will be created which raises NotImplementedError for each
+of the specified method names:
 
 .. code:: python
 
@@ -14,6 +15,13 @@ names:
         'should',
         'have'
     ])
+
+To use this interface, simply inherit from it:
+
+.. code:: python
+
+    class AClass(AnInterface):
+        pass
 
 We also provide a way to create abstract test cases to help test objects
 against the interface:
