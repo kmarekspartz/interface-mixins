@@ -1,7 +1,5 @@
 from setuptools import setup, find_packages
 
-import widely
-
 setup(
     name='interface-mixins',
     version='0.0.1',
