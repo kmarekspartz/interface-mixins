@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='interface-mixins',
-    version='0.0.1',
+    version='0.0.2',
     description='Interfaces for Python',
     long_description=open('README.rst').read(),
     author='Kyle Marek-Spartz',
