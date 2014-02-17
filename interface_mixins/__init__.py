@@ -2,10 +2,13 @@
 Interfaces for Python.
 """
 
-def Interface(interface_name, method_names):
+def Interface(interface_name, parent=None, method_names):
     """
     Create an interface with the the name and method names given.
     """
+    if(parent == None): # Allows for subinterfacing if parent != None.
+        parent = object()
+
     def interface_helper(*args, **kwargs):
         """
         The default implementation of a method for an interface.
