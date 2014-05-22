@@ -6,7 +6,7 @@ def Interface(interface_name, method_names, parent=None):
     """
     Create an interface with the the name and method names given.
     """
-    if parent is None: # Allows for subinterfacing if parent != None.
+    if parent is None:
         parent = (object, )
 
     def interface_helper(*args, **kwargs):
@@ -27,7 +27,7 @@ def AbstractInterfaceTest(test_name, method_names, parent=None):
     Create an abstract tests with the test name which makes sure the methods
     with the names given are implemented.
     """
-    if parent is None: # Allows for sub abstract tests if parent != None.
+    if parent is None:
         parent = (object, )
 
     def abstract_interface_test_helper(method_name):
