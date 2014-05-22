@@ -2,10 +2,13 @@
 Interfaces for Python.
 """
 
-def Interface(interface_name, method_names):
+def Interface(interface_name, method_names, parent=None):
     """
     Create an interface with the the name and method names given.
     """
+    if parent is None: # Allows for subinterfacing if parent != None.
+        parent = (object, )
+
     def interface_helper(*args, **kwargs):
         """
         The default implementation of a method for an interface.
@@ -16,14 +19,17 @@ def Interface(interface_name, method_names):
         for method_name
         in method_names
     }
-    return type(interface_name, (object,), methods)
+    return type(interface_name, parent, methods)
 
 
-def AbstractInterfaceTest(test_name, method_names):
+def AbstractInterfaceTest(test_name, method_names, parent=None):
     """
     Create an abstract tests with the test name which makes sure the methods
     with the names given are implemented.
     """
+    if parent is None: # Allows for sub abstract tests if parent != None.
+        parent = (object, )
+
     def abstract_interface_test_helper(method_name):
         """
         Creates a closure to test a method with the given method_name.
@@ -47,4 +53,4 @@ def AbstractInterfaceTest(test_name, method_names):
         for method_name
         in method_names
     }
-    return type(test_name, (object,), methods)
+    return type(test_name, parent, methods)
